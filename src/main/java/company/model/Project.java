@@ -15,7 +15,7 @@ public class Project {
         this.name = name;
         this.manager = manager;
         this.company = company;
-
+        company.addProject(this);
     }
 
     public void addDeveloperToProject(Developer dev) {
