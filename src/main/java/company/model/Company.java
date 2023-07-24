@@ -15,6 +15,7 @@ public class Company {
     private List<Car> cars = new ArrayList<>();
     private List<Garage> garages = new ArrayList<>();
     private List<Project> projects = new ArrayList<>();
+    private List<FinancialPenalty> financialPenalties = new ArrayList<>();
 
     private static List<Company> extension = new ArrayList<>();
 
@@ -37,6 +38,7 @@ public class Company {
             throw new EmployeeAlreadyHiredException("Already working for this company");
         employee.getCompanies().add(this);
     }
+
 
     public List<Car> getCars() {
         return cars;
@@ -80,6 +82,10 @@ public class Company {
 
     public List<Employee> getEmployees() {
         return employees;
+    }
+
+    public List<FinancialPenalty> getFinancialPenalties() {
+        return financialPenalties;
     }
 
     public void setEmployees(List<Employee> employees) {
