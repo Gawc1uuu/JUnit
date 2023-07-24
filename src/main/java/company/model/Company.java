@@ -42,6 +42,15 @@ public class Company {
         employee.getCompanies().add(this);
     }
 
+    public void addFinancialPenalty(FinancialPenalty financialPenalty){
+        if (financialPenalty == null) throw new IllegalArgumentException();
+        financialPenalties.add(financialPenalty);
+    }
+
+    public void addProject(Project project){
+        if (project == null) throw new IllegalArgumentException();
+        projects.add(project);
+    }
 
     public List<Car> getCars() {
         return cars;
