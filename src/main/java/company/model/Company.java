@@ -4,11 +4,13 @@ package company.model;
 import company.exceptions.CarNotForSaleException;
 import company.exceptions.EmployeeAlreadyHiredException;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Company {
     private String name;
+    private LocalDate createDate;
 
     private List<Employee> employees = new ArrayList<>();
 
@@ -19,8 +21,9 @@ public class Company {
 
     private static List<Company> extension = new ArrayList<>();
 
-    public Company(String name) {
+    public Company(String name, LocalDate createDate) {
         this.name = name;
+        this.createDate = createDate;
         extension.add(this);
     }
 
@@ -86,6 +89,10 @@ public class Company {
 
     public List<FinancialPenalty> getFinancialPenalties() {
         return financialPenalties;
+    }
+
+    public LocalDate getCreateDate() {
+        return createDate;
     }
 
     public void setEmployees(List<Employee> employees) {

@@ -1,5 +1,8 @@
 package company.model;
 
+import company.enums.Sex;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -10,15 +13,18 @@ public abstract class Employee {
     private String lastName;
     private int hoursWorked;
     private double hourlyWage;
-
+    private LocalDate birthDate;
+    private Sex sex;
     private List<Company> companies = new ArrayList<>();
     private static List<Employee> extension = new ArrayList<>();
 
-    public Employee(String firstName, String lastName, int hoursWorked, double hourlyWage) {
+    public Employee(String firstName, String lastName, int hoursWorked, double hourlyWage, LocalDate birthDate, Sex sex) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.hoursWorked = hoursWorked;
         this.hourlyWage = hourlyWage;
+        this.birthDate = birthDate;
+        this.sex = sex;
         extension.add(this);
     }
 
@@ -64,6 +70,14 @@ public abstract class Employee {
 
     public List<Company> getCompanies() {
         return companies;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public Sex getSex() {
+        return sex;
     }
 
     public void setCompanies(List<Company> companies) {
