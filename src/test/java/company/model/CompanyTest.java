@@ -1,6 +1,7 @@
 package company.model;
 
 import company.service.CompanyService;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,7 +30,7 @@ public class CompanyTest {
         company.hireEmployee(d4);
     }
 
-    @Before
+    @After
     public void cleanUp() {
         Company.getExtension().clear();
     }
@@ -51,7 +52,6 @@ public class CompanyTest {
         int numberOfInstances = Company.getExtension().size();
         assertEquals(1, numberOfInstances);
     }
-
 
 
 }
