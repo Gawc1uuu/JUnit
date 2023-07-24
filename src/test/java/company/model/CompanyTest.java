@@ -1,9 +1,12 @@
 package company.model;
 
+import company.enums.Sex;
 import company.service.CompanyService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.time.LocalDate;
 
 import static org.junit.Assert.*;
 
@@ -18,12 +21,12 @@ public class CompanyTest {
 
     @Before
     public void init() {
-        company = new Company("Orlen");
+        company = new Company("Orlen", LocalDate.of(2001, 5, 16));
         companyService = new CompanyService();
-        d1 = new Developer("Jan", "Kowalski", 150, 230);
-        d2 = new Developer("Maciej", "Nowak", 160, 30);
-        d3 = new Developer("Jan", "Kowalski", 120, 130);
-        d4 = new Developer("Jan", "Kowalski", 170, 330);
+        d1 = new Developer("Jan", "Kowalski", 150, 230, LocalDate.of(2000, 10, 1), Sex.MALE);
+        d2 = new Developer("Maciej", "Nowak", 160, 30, LocalDate.of(1980, 4, 3), Sex.MALE);
+        d3 = new Developer("Jan", "Kowalski", 120, 130, LocalDate.of(2001, 2, 15), Sex.MALE);
+        d4 = new Developer("Jan", "Kowalski", 170, 330, LocalDate.of(1999, 11, 6), Sex.MALE);
         company.hireEmployee(d1);
         company.hireEmployee(d2);
         company.hireEmployee(d3);
