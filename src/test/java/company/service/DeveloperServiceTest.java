@@ -80,6 +80,6 @@ public class DeveloperServiceTest {
 
     @Test
     public void shouldReturnDeveloperWithMostProjectsD1() {
-        assertEquals(developerService.developerWithMostProjects(developerList), d1);
+        assertEquals(d1, developerService.developerWithMostProjects(developerList));
     }
 }
