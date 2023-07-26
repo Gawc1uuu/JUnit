@@ -1,6 +1,7 @@
 package company.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Car {
 
@@ -55,5 +56,25 @@ public class Car {
 
     public void setGarage(Garage garage) {
         this.garage = garage;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "producer='" + producer + '\'' +
+                ", productionDate=" + productionDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Objects.equals(producer, car.producer) && Objects.equals(productionDate, car.productionDate) && Objects.equals(nextServiceDate, car.nextServiceDate) && Objects.equals(garage, car.garage) && Objects.equals(company, car.company);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(producer, productionDate, nextServiceDate, garage, company);
     }
 }
