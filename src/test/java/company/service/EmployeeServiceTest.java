@@ -25,12 +25,13 @@ public class EmployeeServiceTest {
     private Company c1;
     private Company c2;
     List<Employee> employees;
+
     @Before
-    public void init(){
-        developer = new Developer("Robin", "Hood", 80, 80, LocalDate.of(1995,3, 15), Sex.MALE);
-        developer1 = new Developer("Meggie", "Doe", 85, 85, LocalDate.of(1993,7, 24), Sex.FEMALE);
-        developer2 = new Developer("Martha", "Brown", 90, 90, LocalDate.of(1999,9, 1), Sex.FEMALE);
-        developer3 = new Developer("Arnold", "Smith", 95, 95, LocalDate.of(1997,2, 28), Sex.MALE);
+    public void init() {
+        developer = new Developer("Robin", "Hood", 80, 80, LocalDate.of(1995, 3, 15), Sex.MALE);
+        developer1 = new Developer("Meggie", "Doe", 85, 85, LocalDate.of(1993, 7, 24), Sex.FEMALE);
+        developer2 = new Developer("Martha", "Brown", 90, 90, LocalDate.of(1999, 9, 1), Sex.FEMALE);
+        developer3 = new Developer("Arnold", "Smith", 95, 95, LocalDate.of(1997, 2, 28), Sex.MALE);
         manager = new Manager("Roberta", "Johannsen", 100, 100, LocalDate.of(1990, 12, 3), Sex.FEMALE);
         manager1 = new Manager("Kristin", "Nilsen", 110, 105, LocalDate.of(2000, 1, 7), Sex.FEMALE);
         c1 = new Company("Samsung", LocalDate.of(2007, 2, 9));
@@ -44,64 +45,73 @@ public class EmployeeServiceTest {
         c2.hireEmployee(manager1);
         employees = Arrays.asList(developer, developer1, developer2, developer3, manager, manager1);
     }
+
     @Test
     public void shouldReturnBestPaidWorkers() {
         List<Employee> result = EmployeeService.returnBestPaidWorkers(employees);
-      assertEquals(1, result.size());
+        assertEquals(1, result.size());
         assertEquals(manager1, result.get(0));
     }
-@Test
-    public void shouldReturnTopNBestPaidWorkers (){
-       List<Employee> result = EmployeeService.returnTopNBestPaidWorkers(employees, 2);
+
+    @Test
+    public void shouldReturnTopNBestPaidWorkers() {
+        List<Employee> result = EmployeeService.returnTopNBestPaidWorkers(employees, 2);
         assertEquals(2, result.size());
         assertEquals(manager1, result.get(0));
         assertEquals(manager, result.get(1));
-}
-@Test (expected = NoEnoughEmployeesException.class)
-    public void shouldReturnNoEnoughEmployeesExceptionWhenParametherNumberIsBiggerThanListSize(){
-EmployeeService.returnTopNBestPaidWorkers(employees, 7);
-}
+    }
 
-@Test
-    public void shouldSortEmployeesByTheirSalaries(){
-    List<Employee> result = EmployeeService.sortEmployeesBySalary(employees);
-    assertEquals(6, result.size());
-    assertEquals(developer, result.get(0));
-    assertEquals(developer1, result.get(1));
-    assertEquals(developer2, result.get(2));
-    assertEquals(developer3, result.get(3));
-    assertEquals(manager, result.get(4));
-    assertEquals(manager1, result.get(5));
-}
-@Test
-    public void shouldReturnTheWorstPaidEmployees(){
+    @Test(expected = NoEnoughEmployeesException.class)
+    public void shouldReturnNoEnoughEmployeesExceptionWhenParametherNumberIsBiggerThanListSize() {
+        EmployeeService.returnTopNBestPaidWorkers(employees, 7);
+    }
+
+    @Test
+    public void shouldSortEmployeesByTheirSalaries() {
+        List<Employee> result = EmployeeService.sortEmployeesBySalary(employees);
+        assertEquals(6, result.size());
+        assertEquals(developer, result.get(0));
+        assertEquals(developer1, result.get(1));
+        assertEquals(developer2, result.get(2));
+        assertEquals(developer3, result.get(3));
+        assertEquals(manager, result.get(4));
+        assertEquals(manager1, result.get(5));
+    }
+
+    @Test
+    public void shouldReturnTheWorstPaidEmployees() {
         List<Employee> result = EmployeeService.findTheWorstPaidEmployees(employees, 2);
         assertEquals(2, result.size());
         assertEquals(developer, result.get(0));
         assertEquals(developer1, result.get(1));
-}
-@Test
-    public void shouldReturnAverageSalary(){
-        double expectedSalary = EmployeeService.findAverageSalary(employees);
-assertEquals(8716.67, expectedSalary, 1);
     }
+
     @Test
-    public void shouldReturnTheOldestEmployee(){
+    public void shouldReturnAverageSalary() {
+        double expectedSalary = EmployeeService.findAverageSalary(employees);
+        assertEquals(8716.67, expectedSalary, 1);
+    }
+
+    @Test
+    public void shouldReturnTheOldestEmployee() {
         Employee theOldest = EmployeeService.findTheOldestEmployee(employees);
         assertEquals(manager, theOldest);
     }
+
     @Test
-    public void shouldReturnTheYoungestEmployee(){
+    public void shouldReturnTheYoungestEmployee() {
         Employee theYoungest = EmployeeService.findTheYoungestEmployee(employees);
         assertEquals(manager1, theYoungest);
     }
+
     @Test
-    public void shouldReturnAverageAgeOfEmployees(){
+    public void shouldReturnAverageAgeOfEmployees() {
         double expectedAverageAge = EmployeeService.returnAverageAgeOfEmployees(employees);
         assertEquals(27, expectedAverageAge, 1);
     }
+
     @Test
-    public void shouldReturnWomanAsMostPopularSexWithinEmployees(){
+    public void shouldReturnWomanAsMostPopularSexWithinEmployees() {
         String expectedSex = EmployeeService.returnThMostPopularSexWithinTheEmployees(employees);
         assertEquals(Sex.FEMALE.toString(), expectedSex);
     }

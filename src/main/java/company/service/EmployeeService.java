@@ -95,9 +95,9 @@ public class EmployeeService {
                 .filter(employee -> employee.getSex() == Sex.MALE)
                 .count();
         //return numberOfWoman > numberOfMan ? Sex.FEMALE.toString() : Sex.MALE.toString();
-        if (numberOfWoman > numberOfMan){
+        if (numberOfWoman > numberOfMan) {
             return Sex.FEMALE.toString();
-        } else if (numberOfMan > numberOfWoman){
+        } else if (numberOfMan > numberOfWoman) {
             return Sex.MALE.toString();
         } else {
             return "Equal number of man and woman";
