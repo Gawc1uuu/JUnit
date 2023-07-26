@@ -35,6 +35,7 @@ public class CompanyTest {
 
     @After
     public void cleanUp() {
+        Developer.getExtension().clear();
         Company.getExtension().clear();
     }
 

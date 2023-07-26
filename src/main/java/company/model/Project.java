@@ -20,9 +20,9 @@ public class Project {
 
     public void addDeveloperToProject(Developer dev) {
         if (dev == null) throw new IllegalArgumentException();
-        if (dev.getProject() != null) throw new IllegalArgumentException();
+        if (dev.getProjects() != null) throw new IllegalArgumentException();
         team.add(dev);
-        dev.setProject(this);
+        dev.addProject(this);
     }
 
     public String getName() {
