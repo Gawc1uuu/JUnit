@@ -6,7 +6,7 @@ import company.model.Project;
 import java.util.*;
 
 public class ProjectService {
-    public Project projectsWithMostDevelopers(List<Project> projects) {
+    public Project projectWithMostDevelopers(List<Project> projects) {
         return Optional.ofNullable(projects)
                 .orElseGet(Collections::emptyList)
                 .stream()
