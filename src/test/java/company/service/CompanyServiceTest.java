@@ -56,6 +56,7 @@ public class CompanyServiceTest {
     @After
     public void clearExtension(){
         Company.getExtension().clear();
+        Developer.getExtension().clear();
     }
 
     @Test

@@ -28,6 +28,7 @@ public class EmployeeTest {
     @After
     public void cleanUp() {
         Employee.getExtension().clear();
+        Company.getExtension().clear();
     }
 
     @Test
