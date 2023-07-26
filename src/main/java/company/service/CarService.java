@@ -30,11 +30,11 @@ public class CarService {
                 .toList();
     }
 
-    public List<Car> findAllCarsThatHaveIncomingService(List<Car> cars) {
+    public List<Car> findAllCarsThatHaveIncomingService(List<Car> cars, int numOfDaysToService) {
         return Optional.ofNullable(cars).orElseGet(Collections::emptyList)
                 .stream().filter(Objects::nonNull).filter(car -> {
                     long daysDiff = ChronoUnit.DAYS.between(LocalDate.now(), car.getNextServiceDate());
-                    return daysDiff < 30;
+                    return daysDiff <= numOfDaysToService;
                 }).toList();
     }
 

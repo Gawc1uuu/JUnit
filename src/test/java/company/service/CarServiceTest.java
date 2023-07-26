@@ -49,7 +49,7 @@ public class CarServiceTest {
 
     @Test
     public void shouldReturnCarsThatHaveServiceInLessThan30Days() {
-        List<Car> serviceCars = carService.findAllCarsThatHaveIncomingService(carList);
+        List<Car> serviceCars = carService.findAllCarsThatHaveIncomingService(carList, 30);
         assertEquals(List.of(car1, car3), serviceCars);
     }
 
