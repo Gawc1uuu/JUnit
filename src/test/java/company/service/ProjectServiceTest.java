@@ -5,6 +5,7 @@ import company.model.Company;
 import company.model.Developer;
 import company.model.Manager;
 import company.model.Project;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -65,6 +66,13 @@ public class ProjectServiceTest {
         p3.addDeveloperToProject(d3);
         p4.addDeveloperToProject(d4);
         p4.addDeveloperToProject(d2);
+    }
+
+    @After
+    public void clean() {
+        Developer.getExtension().clear();
+        Company.getExtension().clear();
+        Manager.getExtension().clear();
     }
 
 
