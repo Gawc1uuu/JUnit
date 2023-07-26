@@ -21,11 +21,4 @@ public class Developer extends Employee {
     public void addProject(Project project) {
         projects.add(project);
     }
-
-    //        metody developerzy
-//        znalezc developera co ma najwiecej/najmniej projektow.
-//        znalezc developera co pracuje w wiecej niz x firm
-////         metody projekty
-
-
 }
