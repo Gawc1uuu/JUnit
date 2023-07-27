@@ -86,4 +86,15 @@ public class ProjectServiceTest {
         List<Project> projectsWithManagerM1 = Arrays.asList(p1, p2, p3);
         assertEquals(projectsWithManagerM1, projectService.projectsWithManager(projectList, m1));
     }
+
+    @Test
+    public void shouldReturnProjectWithName() {
+        assertEquals(Arrays.asList(p1), projectService.projectsContainsName(projectList, "P1"));
+    }
+
+    @Test
+    public void shouldReturnProjectsWithDeveloper() {
+        List<Project> projectsWithD1 = Arrays.asList(p1, p2, p3);
+        assertEquals(projectsWithD1, projectService.projectsWithDeveloper(projectList, d1));
+    }
 }
