@@ -89,7 +89,7 @@ public class DeveloperServiceTest {
 
     @Test
     public void shouldReturnListContaining6DevelopersForGetDevelopersExtension() {
-        assertEquals(5, Developer.getExtension().size());
+        assertEquals(6, Developer.getExtension().size());
     }
 
     @Test
