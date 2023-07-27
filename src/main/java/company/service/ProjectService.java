@@ -1,5 +1,6 @@
 package company.service;
 
+import company.model.Developer;
 import company.model.Manager;
 import company.model.Project;
 
@@ -21,6 +22,24 @@ public class ProjectService {
                 .stream()
                 .filter(Objects::nonNull)
                 .filter(project -> project.getManager().equals(manager))
+                .toList();
+    }
+
+    public List<Project> projectsContainsName(List<Project> projects, String name) {
+        return Optional.ofNullable(projects)
+                .orElseGet(Collections::emptyList)
+                .stream()
+                .filter(Objects::nonNull)
+                .filter(project -> project.getName().contains(name))
+                .toList();
+    }
+
+    public List<Project> projectsWithDeveloper(List<Project> projects, Developer developer) {
+        return Optional.ofNullable(projects)
+                .orElseGet(Collections::emptyList)
+                .stream()
+                .filter(Objects::nonNull)
+                .filter(project -> project.getTeam().contains(developer))
                 .toList();
     }
 }
