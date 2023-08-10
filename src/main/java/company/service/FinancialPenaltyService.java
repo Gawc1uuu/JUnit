@@ -20,7 +20,4 @@ public class FinancialPenaltyService {
         return wholePenaltiesAmount / numberOfEmployees;
     }
 
-//    srednia wysokosc kar, min, max
-
-
 }

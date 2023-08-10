@@ -67,7 +67,6 @@ public class ArrayUtilTest {
         assertArrayEquals(arrayToTest, sortedArray);
     }
 
-    //dodatkowe
     @Test
     public void shouldReturnReversedArray(){
         int[] arrayToTest = {2, 1, 4, 3, 5};
