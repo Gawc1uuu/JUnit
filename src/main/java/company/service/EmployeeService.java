@@ -94,7 +94,6 @@ public class EmployeeService {
         long numberOfMan = employees.stream()
                 .filter(employee -> employee.getSex() == Sex.MALE)
                 .count();
-        //return numberOfWoman > numberOfMan ? Sex.FEMALE.toString() : Sex.MALE.toString();
         if (numberOfWoman > numberOfMan) {
             return Sex.FEMALE.toString();
         } else if (numberOfMan > numberOfWoman) {
